@@ -27,9 +27,9 @@ if ($stmt->rowCount() == 1) {
     $doctor->name = $row['name'];
     $doctor->id = $row['id'];
 
-    $_SESSION['id'] = $doctor->id;
     $_SESSION['name'] = $doctor->name;
     $_SESSION['success'] = "You are now logged in";
+    $_SESSION['doctor_id'] = $doctor->id;
     $doctor_arr = array(
         "status" => true,
         "message" => "Doctor, Successfully Authenticated!"
@@ -37,7 +37,7 @@ if ($stmt->rowCount() == 1) {
 } else {
     $doctor_arr = array(
         "status" => false,
-        "message" => "Doctor, Cannot be authenticated!"
+        "message" => "Doctor, Cannot be autehnticated"
     );
 }
 

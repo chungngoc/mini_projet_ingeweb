@@ -17,7 +17,7 @@ $content = '<div class="row">
       <div class="box-body">
         <div class="form-group">
           <label for="exampleInputName1">Email</label>
-          <input type="text" class="form-control" id="email" placeholder="Enter Your Email">
+          <input type="text" class="form-control" id="email" placeholder="Enter Email">
         </div>
         
         <div class="form-group">
@@ -55,7 +55,7 @@ include('../master.php');
       success: function(result) {
         if (result['status'] == true) {
           alert(result['message']);
-          window.location.href = '/doctor';
+          window.location.href = '/patient/myPatient.php';
         } else {
           alert(result['message']);
         }

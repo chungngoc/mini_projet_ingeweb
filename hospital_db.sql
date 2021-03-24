@@ -34,8 +34,10 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 INSERT INTO `doctors` (`id`, `name`, `email`, `password`, `phone`, `gender`, `specialist`, `created`) VALUES
-(1, 'Ahmad Abdallah', 'aabda067@gmail.com', 'Vm0xMFlWbFdWWGhVYmxKWFltdHdVRlpzV21GWFJscHlWV3RLVUZWVU1Eaz0=', '03218878961', 0, 'COVID-19', '2018-05-01 13:07:24');
-
+(1, 'Zineb Hitait', 'aabda067@gmail.com', 'Vm0xMFlWbFdWWGhVYmxKWFltdHdVRlpzV21GWFJscHlWV3RLVUZWVU1Eaz0=', '03218878961', 0, 'COVID-19', '2018-05-01 13:07:24'),
+(5, 'Zineb', 'zineb@gmail.com', 'password', '46545654776', 0, 'jouet', '2018-05-01 13:07:26'),
+(7, 'monsieur Abdallah', 'abd@gmail.com', 'password', '123', 0, 'jouet', '2018-05-01 13:07:26')
+;
 -- --------------------------------------------------------
 --
 -- Table structure for table `nurses`
@@ -73,8 +75,9 @@ CREATE TABLE `patients` (
 -- Dumping data for table `patients`
 --
 INSERT INTO `patients` (`id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`) VALUES
+(3, 'Zainab', '0998859666', 1, 'sick', 5, 1, '2021-03-24 13:12:18'),
 (6, 'hjj', '9988596666', 1, 'vbjbb', 1, 1, '2018-06-26 13:12:18'),
-(9, '2', '123456789', 1, 'OK', 1, 1, '2018-07-06 13:59:25'),
+(9, '2', '123456789', 1, 'OK', 10, 1, '2018-07-06 13:59:25'),
 (10, '2', '123456789', 1, 'OK', 1, 1, '2018-07-06 14:13:13'),
 (11, 'shehryar', '123456789', 1, 'OK', 1, 1, '2018-07-06 17:36:08'),
 (14, 'Coding', '3433243243', 0, 'asd', 1, 1, '2018-07-06 18:39:42'),

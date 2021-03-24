@@ -91,7 +91,7 @@
                 <div class="m-4 badge bg-primary"><?php echo $_SESSION['name']; ?></div>
                 <div> Status</div>
                 <!-- Status -->
-                <div class=""><a href="doctor/index.php?logout='1'"><i class="fa fa-circle text-success"></i> Logout</a>
+                <div class=""><a href="../doctor/index.php?logout='1'"><i class="fa fa-circle text-success"></i> Logout</a>
                 </div>
               <?php endif ?>
             </div>
@@ -124,9 +124,7 @@
               <li><a href="/doctor/create.php">Create Doctor</a></li>
               <li><a href="/doctor">All Doctors</a></li>
             </ul>
-          </li>
-
-          <li class="treeview">
+            <li class="treeview">
             <a href="#"><i class="fa fa-medkit"></i> <span>Patients</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -134,8 +132,10 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="/patient/create.php">Add Patient</a></li>
+              <li><a href="/patient/myPatient.php">My Patients</a></li>
               <li><a href="/patient">All Patients</a></li>
             </ul>
+            
           </li>
         </ul>
 

@@ -54,56 +54,60 @@ if (isset($_GET['logout'])) {
   header("location: doc_login.php");
 }
 
-$dashboard = "Admin";
+$dashboard = "Doctor";
 $content = '<div class="row">
-  <div class="col-xs-12">
-  <div class="box">
-    <div class="box-header">
-      <h3 class="box-title">Patients List</h3>
-    </div>
-    <!-- /.box-header -->
-    <div class="box-body">
-      <table id="patients" class="table table-bordered table-hover">
-        <thead>
-        <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Gender</th>
-        <th>Health_Condition</th>
-        <th>Doctor_ID</th>
-        <th>Nurse_ID</th>
-        <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        </tbody>
-        <tfoot>
-        <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Gender</th>
-        <th>Health_Condition</th>
-        <th>Doctor_ID</th>
-        <th>Nurse_ID</th>
-        <th>Action</th>
-        </tr>
-        </tfoot>
-      </table>
-    </div>
-    <!-- /.box-body -->
+<div class="col-xs-12">
+<div class="box">
+  <div class="box-header">
+    <h3 class="box-title">List of my Patients</h3>
   </div>
-  <!-- /.box -->
+  <!-- /.box-header -->
+  <div class="box-body">
+    <table id="patients" class="table table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Gender</th>
+        <th>Health_Condition</th>
+        <th>Doctor_ID</th>  
+        <th>Nurse_ID</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+      <tfoot>
+      <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Gender</th>
+      <th>Health_Condition</th>
+      <th>Doctor_ID</th>  
+      <th>Nurse_ID</th>
+      <th>Action</th>
+      </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.box-body -->
+</div>
+<!-- /.box -->
 </div>
 </div>';
 include('../master.php');
 ?>
 <!-- page script -->
 <script>
+
   // JQuery: AJAX : Appel Asynchrone
   $(document).ready(function() {
     $.ajax({
       type: "GET",
-      url: "../api/patient/read.php",
+      url: "../api/patient/read_patient_by_doctorID.php",
+      data: {
+             id: <?php echo $_SESSION['doctor_id'] ?>
+             },
       dataType: 'json',
       success: function(data) {
         var response = "";

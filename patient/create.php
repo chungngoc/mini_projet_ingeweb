@@ -80,7 +80,7 @@
             success: function (result) {
                 if (result['status'] == true) {
                     alert("Successfully Added New Patient!");
-                    window.location.href = '/patient';
+                    window.location.href = '/patient/index.php';
                 }
                 else {
                     alert(result['message']);

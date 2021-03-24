@@ -18,7 +18,7 @@ class Patient
     public $doctor_id;
     public $nurse_id;
     public $created;
-    
+
     // constructor with $db as database connection
     public function __construct($db)
     {
@@ -31,9 +31,9 @@ class Patient
 
         // select all query
         $query = "SELECT
-                    `id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id` , `nurse_id` , `created`
+                    `id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`
                 FROM
-                    " . $this->table_name . " 
+                    " . $this->table_name . "
                 ORDER BY
                     id DESC";
 
@@ -46,13 +46,13 @@ class Patient
         return $stmt;
     }
 
-    // get single doctor data
+    // get single patient data
     function read_single()
     {
 
         // select all query
         $query = "SELECT
-                    `id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id` , `nurse_id` , `created`
+                    `id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`
                 FROM
                     " . $this->table_name . " 
                 WHERE
@@ -75,8 +75,8 @@ class Patient
         }
 
         // query to insert record
-        $query = "INSERT INTO  " . $this->table_name . " 
-                        (`name`, `phone`, `gender`, `health_condition`, `doctor_id` , `nurse_id` , `created`)
+        $query = "INSERT INTO  " . $this->table_name . "
+                        (`name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`)
                   VALUES
                         ('" . $this->name . "', '" . $this->phone . "', '" . $this->gender . "', '" . $this->health_condition . "', '" . $this->doctor_id . "', '" . $this->nurse_id . "', '" . $this->created . "')";
 
@@ -92,7 +92,7 @@ class Patient
         return false;
     }
 
-    // update patient 
+    // update patient
     function update()
     {
 
@@ -132,14 +132,13 @@ class Patient
         }
         return false;
     }
-
     function isAlreadyExist()
     {
         $query = "SELECT *
             FROM
                 " . $this->table_name . " 
             WHERE
-                name='" . $this->name . "'";
+                email='" . $this->email . "'";
 
         // prepare query statement
         $stmt = $this->conn->prepare($query);
@@ -153,5 +152,21 @@ class Patient
             return false;
         }
     }
+    function read_patient_by_doctorID()
+        {
+            // select all query
+            $query = "SELECT
+                        `id`, `name`, `phone`, `gender`, `health_condition`, `doctor_id`, `nurse_id`, `created`
+                    FROM
+                        " . $this->table_name . " 
+                    WHERE
+                        doctor_id= '" . $this->doctor_id . "'";
 
+            // prepare query statement
+            $stmt = $this->conn->prepare($query);
+
+            // execute query
+            $stmt->execute();
+            return $stmt;
+        }
 }
